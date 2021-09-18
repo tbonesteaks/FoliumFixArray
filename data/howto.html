@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http_equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Denver PD Data Lake HowTo</title>
+<meta name="description" content=" Denver Police Department Arrest Information Visualized for Data Science Project">
+<meta name="keywords" content="Denver,Denver Colorado,Denver Police Department,Denver Police,Visualization,Python,Florium,Heat Map,HeatMap,Data Science">
+<meta http-equiv="Content-Type"  content="text/html; charset=utf-8">
+<meta http-equiv="author"  content="Todd Gardiner">
+<link href="bootstrap.css" rel="stylesheet"
+<link rel="canonical" href="https://getbootstrap.com/docs/3.3/css/">
+</head>
+<body style="padding:5px;">
+    <h2>How To Build a Map from a Data Lake Using Python, Folium, and Denver PD Data</h2>
+
+    <h3>Why Python with Folium for a Heatmap?</h3> 
+    <p class="well">   
+    This script is published to show you how Python, matplotlib.py, and Folium are more than capable of plotting a million data 
+    points on a series of maps in under 20 minutes.<br>
+    The output file for a single map with over 500,000 points is less than 15mb. <br>
+    For those who needed to find a way to plot their own points, this set of logic is posted for your consideration.<br>
+    </p>
+        <h3>How does this Folium Python script work?</h3><p class="well">    
+        The download of the csv, data folder creation, and build of 15 maps are completed with just one file, root.py.<br>
+        The index.html page is written to show you how to input those maps into your website via iframe.<br>
+        This howto.html page is only to explain the rest. Bootstrap adds a style sheet, and ensures html5 compliance.<br>
+        The whole repository can be rebuilt if you just take those 4 files, (root.py, index.html, howto.html, bootstrap.css ).<br><br>
+
+        You are welcome to clone the whole repo if you feel so inclined.<br><br>
+        Bootstrap is published by Twitter, this tutorial is using version 3.3.7 &copy;2016.<br><BR>
+    
+        There is an added script, tester.py, to help you play with the dataframe pulls and see those outside of root.py.<br>
+        The tester.py script assumes you have already downloaded the CSV, and is there for you to test pulls against the dataframe without having to run the whole script. <br>
+        Use tester.py to experiment with extracting different regex, years, crime codes, etc. and viewing the dataframe prior to install.<br>
+    </p>
+    
+    <h3>How should you go about learning this?</h3><p class="well">The code in both tester.py and root.py is commented to explain what is going on with the script line by line.<BR>
+    For users learning, maybe comment out the whole script, and then uncomment a few lines at a time to see what is happening.<br>
+    The double comments (aka ##) are there to help you see what the code is doing and should remain as comments.</p>
+
+
+    <h3>Caveats:</h3><p class="well" >For those about to write and tell me I should have looped the yearly pulls for subsequent maps, you're right.  <br>
+        But this method makes understanding those pulls easier, encourages folks to do different pulls by year, and incentivizes some to learn that on their own.<br> 
+        Thank you in advance for the suggestion and bringing that up ________. <br>(You Know Who You Are)<BR><BR>
+        Special thanks to the City of Denver for making this data file available to play with. <br>
+        You can peruse their data repo here:
+        <a href="https://denvergov.org/opendata/dataset/city-and-county-of-denver-crime" target="_blank" alt="Denver Police Trilobytes of Data">
+            https://denvergov.org/opendata/dataset/city-and-county-of-denver-crime</a></p>
+
+        <h3>Why was this built?</h3><p class="well">
+            For advanced users, this example shows how to use lists to populate folium when numpy.array breaks your folium heat maps.</p>
+        
+                <h3>Dependencies:</h3><p class="well">
+        For new users without installed dependencies:
+        If you are getting errors related to the packages in the import section you need to install them on your machine to run the script locally. <br>
+        To do so, you'll need to use pip3 (Python's standard package manager for Python 3 packages.)<br>
+        At a command prompt, on your machine, run the command to install them individually. <br>
+        We've included a few in italics below to get you started installing dependencies one at a time.<br><BR>
+               
+            &nbsp; &nbsp; <b><i>pip3 install folium</i></b> &nbsp; &#8592;  this installs folium<br>
+            &nbsp; &nbsp; <b><i>pip3 install matplotlib.py</i></b> &nbsp; &#8592; this installs matplotlib.py<br>
+            &nbsp; &nbsp; <b><i>pip3 install seaborn</i></b> &nbsp; &#8592;  this installs seaborn<br>
+            &nbsp; &nbsp; <b><i>pip3 install wget</i></b>  &nbsp; &#8592;  this installs wget<br>
+                 
+    </P>
+<center><I>Yes, these puns are free of charge! Not the electrons used for cognition.</I></center>
+
+</body>
+</html>
