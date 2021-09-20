@@ -161,7 +161,7 @@ del coords
 del ccoords
 del tcoords
 
-##set new empty arrays for the second annual pull
+##set new empty arrays for the next annual pull
 coords = []
 ccoords = []
 tcoords = []
@@ -205,7 +205,7 @@ del coords
 del ccoords
 del tcoords
 
-##set new empty arrays for the first annual pull
+##set new empty arrays for the next annual pull
 coords = []
 ccoords = []
 tcoords = []
