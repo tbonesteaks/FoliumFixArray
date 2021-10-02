@@ -284,4 +284,142 @@ tsmap
 tsmapsave = os.path.join(folder ,"tmapout18.html")
 tsmap.save(outfile=tsmapsave)
 
-print("You've just placed over 2 million points into heat maps in under 3 minutes. Good job.")
+### Since we don't see bias in the above maps, let's continue
+dvcoords = []
+dv18coords = []
+dv19coords = []
+dv20coords = []
+dv21coords = []
+
+dv_tot = crime.query("OFFENSE_CODE == 1313 or OFFENSE_CODE == 1315 or OFFENSE_CODE == 5309 or OFFENSE_CODE == 1316 or OFFENSE_CODE == 1006")
+
+print(dv_tot)
+length = dv_tot.shape[0]
+
+for a in range(length):
+    ##we need a test to eliminate NANs (not a number) so we append the array if the Latitude value is north of Mexico
+    if dv_tot['GEO_LAT'].values[a] > 15 :
+        dvcoords.append([dv_tot['GEO_LAT'].values[a],dv_tot['GEO_LON'].values[a]])
+       
+dv_map = folium.Map(mapcenter,zoom_start=11)
+dv_map.add_child(plugins.HeatMap(dvcoords, radius=12))
+dv_mapsave =  os.path.join(folder , "dvmaptot.html")
+dv_map.save(outfile=dv_mapsave)
+
+dv18 = dv_tot[dv_tot['REPORTED_DATE'].str.contains(r'(?!$)2018(?!$)')]
+print(dv18)
+length = dv18.shape[0]
+for a in range(length):
+    ##we need a test to eliminate NANs (not a number) so we append the array if the Latitude value is north of Mexico
+    if dv18['GEO_LAT'].values[a] > 15 :
+        dv18coords.append([dv18['GEO_LAT'].values[a],dv18['GEO_LON'].values[a]])
+dv_18map = folium.Map(mapcenter,zoom_start=11)
+dv_18map.add_child(plugins.HeatMap(dv18coords, radius=12))
+dv_18mapsave =  os.path.join(folder , "dvmap18.html")
+dv_18map.save(outfile=dv_18mapsave)
+
+dv19 = dv_tot[dv_tot['REPORTED_DATE'].str.contains(r'(?!$)2019(?!$)')]
+print(dv19)
+length = dv19.shape[0]
+for a in range(length):
+    ##we need a test to eliminate NANs (not a number) so we append the array if the Latitude value is north of Mexico
+    if dv19['GEO_LAT'].values[a] > 15 :
+        dv19coords.append([dv19['GEO_LAT'].values[a],dv19['GEO_LON'].values[a]])
+dv_19map = folium.Map(mapcenter,zoom_start=11)
+dv_19map.add_child(plugins.HeatMap(dv19coords, radius=12))
+dv_19mapsave =  os.path.join(folder , "dvmap19.html")
+dv_19map.save(outfile=dv_19mapsave)
+
+dv20 = dv_tot[dv_tot['REPORTED_DATE'].str.contains(r'(?!$)2020(?!$)')]
+print(dv20)
+length = dv20.shape[0]
+for a in range(length):
+    ##we need a test to eliminate NANs (not a number) so we append the array if the Latitude value is north of Mexico
+    if dv20['GEO_LAT'].values[a] > 15 :
+        dv20coords.append([dv20['GEO_LAT'].values[a],dv20['GEO_LON'].values[a]])
+dv_20map = folium.Map(mapcenter,zoom_start=11)
+dv_20map.add_child(plugins.HeatMap(dv20coords, radius=12))
+dv_20mapsave =  os.path.join(folder , "dvmap20.html")
+dv_20map.save(outfile=dv_20mapsave)
+
+dv21 = dv_tot[dv_tot['REPORTED_DATE'].str.contains(r'(?!$)2021(?!$)')]
+print(dv21)
+length = dv21.shape[0]
+for a in range(length):
+    ##we need a test to eliminate NANs (not a number) so we append the array if the Latitude value is north of Mexico
+    if dv21['GEO_LAT'].values[a] > 15 :
+        dv21coords.append([dv21['GEO_LAT'].values[a],dv21['GEO_LON'].values[a]])
+dv_21map = folium.Map(mapcenter,zoom_start=11)
+dv_21map.add_child(plugins.HeatMap(dv21coords, radius=12))
+dv_21mapsave =  os.path.join(folder , "dvmap21.html")
+dv_21map.save(outfile=dv_21mapsave)
+## can you see where activist's bias against men regarding Domestic Violence originates?
+## is the incidence as evenly spread as traffic tickets in the maps?
+## let's see what the maps look like by offense code...
+dv1006coords = []
+dv1313coords = []
+dv1315coords = []
+dv1316coords = []
+dv5309coords = []
+
+dv1006 = crime.query("OFFENSE_CODE == 1006")
+print(dv1006)
+length = dv1006.shape[0]
+for a in range(length):
+    ##we need a test to eliminate NANs (not a number) so we append the array if the Latitude value is north of Mexico
+    if dv1006['GEO_LAT'].values[a] > 15 :
+        dv1006coords.append([dv1006['GEO_LAT'].values[a],dv1006['GEO_LON'].values[a]])
+dv_1006map = folium.Map(mapcenter,zoom_start=11)
+dv_1006map.add_child(plugins.HeatMap(dv1006coords, radius=12))
+dv_1006mapsave =  os.path.join(folder , "dvmap1006.html")
+dv_1006map.save(outfile=dv_1006mapsave)
+
+dv1313 = crime.query("OFFENSE_CODE == 1313")
+print(dv1313)
+length = dv1313.shape[0]
+for a in range(length):
+    ##we need a test to eliminate NANs (not a number) so we append the array if the Latitude value is north of Mexico
+    if dv1313['GEO_LAT'].values[a] > 15 :
+        dv1313coords.append([dv1313['GEO_LAT'].values[a],dv1313['GEO_LON'].values[a]])
+dv_1313map = folium.Map(mapcenter,zoom_start=11)
+dv_1313map.add_child(plugins.HeatMap(dv1313coords, radius=12))
+dv_1313mapsave =  os.path.join(folder , "dvmap1313.html")
+dv_1313map.save(outfile=dv_1313mapsave)
+
+dv1315 = crime.query("OFFENSE_CODE == 1315")
+print(dv1315)
+length = dv1315.shape[0]
+for a in range(length):
+    ##we need a test to eliminate NANs (not a number) so we append the array if the Latitude value is north of Mexico
+    if dv1315['GEO_LAT'].values[a] > 15 :
+        dv1315coords.append([dv1315['GEO_LAT'].values[a],dv1315['GEO_LON'].values[a]])
+dv_1315map = folium.Map(mapcenter,zoom_start=11)
+dv_1315map.add_child(plugins.HeatMap(dv1315coords, radius=12))
+dv_1315mapsave =  os.path.join(folder , "dvmap1315.html")
+dv_1315map.save(outfile=dv_1315mapsave)
+
+dv1316 = crime.query("OFFENSE_CODE == 1316")
+print(dv1316)
+length = dv1316.shape[0]
+for a in range(length):
+    ##we need a test to eliminate NANs (not a number) so we append the array if the Latitude value is north of Mexico
+    if dv1316['GEO_LAT'].values[a] > 15 :
+        dv1316coords.append([dv1316['GEO_LAT'].values[a],dv1316['GEO_LON'].values[a]])
+dv_1316map = folium.Map(mapcenter,zoom_start=11)
+dv_1316map.add_child(plugins.HeatMap(dv1316coords, radius=12))
+dv_1316mapsave =  os.path.join(folder , "dvmap1316.html")
+dv_1316map.save(outfile=dv_1316mapsave)
+
+dv5309 = crime.query("OFFENSE_CODE == 5309")
+print(dv5309)
+length = dv5309.shape[0]
+for a in range(length):
+    ##we need a test to eliminate NANs (not a number) so we append the array if the Latitude value is north of Mexico
+    if dv5309['GEO_LAT'].values[a] > 15 :
+        dv5309coords.append([dv5309['GEO_LAT'].values[a],dv5309['GEO_LON'].values[a]])
+dv_5309map = folium.Map(mapcenter,zoom_start=11)
+dv_5309map.add_child(plugins.HeatMap(dv5309coords, radius=12))
+dv_5309mapsave =  os.path.join(folder , "dvmap5309.html")
+dv_5309map.save(outfile=dv_5309mapsave)
+
+print("You've just placed over 2.2 million points into heat maps in under 3 minutes. Good job.")

@@ -18,7 +18,15 @@ print(crime)
 
 ##If you see the dataframe populate when your run this the first time, everything worked. 
 ## Uncomment the rows below to start searching the data... 
-c20 = crime[crime['REPORTED_DATE'].str.contains(r'(?!$)2020(?!$)')]
+
+print("Let's look at the Dataframe and run your query")
+## Example 1: Search reported date for a year
+#c20 = crime[crime['REPORTED_DATE'].str.contains(r'(?!$)2020(?!$)')]
+
+## Example 2: Search offense codes for DV associated incidents
+ c20 = crime.query("OFFENSE_CODE == 1313 or OFFENSE_CODE == 1315 or OFFENSE_CODE == 5309")
+
+
 print(c20)
 length = c20.shape[0]
 
